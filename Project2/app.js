@@ -3,7 +3,6 @@ const weatherContainer = document.getElementById("weather-container");
 
 const API_KEY = "YOUR_OPENWEATHER_API_KEY"; 
 
-
 for (const region in regionCities) {
   const option = document.createElement("option");
   option.value = region;
@@ -19,6 +18,16 @@ regionSelect.addEventListener("change", async () => {
 
   for (const city of regionCities[region]) {
     const weatherData = await fetchWeather(city);
+    if (!weatherData) {
+      const card = document.createElement("div");
+      card.className = "weather-card";
+      card.innerHTML = `
+        <h2>${city}</h2>
+        <p style="color:red;">Weather data not available.</p>
+      `;
+      weatherContainer.appendChild(card);
+      continue;
+    }
     const previousTemp = simulatePreviousWeather(city, weatherData.main.temp);
 
     const card = document.createElement("div");
@@ -35,7 +44,6 @@ regionSelect.addEventListener("change", async () => {
 });
 
 async function fetchWeather(city) {
-  const API_KEY = "YOUR_API_KEY"; 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},PH&appid=${API_KEY}&units=metric`;
 
   try {
@@ -50,8 +58,6 @@ async function fetchWeather(city) {
     return null;
   }
 }
-
-
 
 function simulatePreviousWeather(city, currentTemp) {
   const key = `weather_${city}`;
