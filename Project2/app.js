@@ -1,7 +1,7 @@
 const regionSelect = document.getElementById("region");
 const weatherContainer = document.getElementById("weather-container");
 
-const API_KEY = "590edf89548a4ccb718d4f0dd5daafac"; 
+const API_KEY = "38b89ef6339d4a0e1eab655c978ba7cc"; 
 
 for (const region in regionCities) {
   const option = document.createElement("option");
@@ -44,8 +44,8 @@ regionSelect.addEventListener("change", async () => {
 });
 
 async function fetchWeather(city) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},PH&appid=${API_KEY}&units=metric`;
 
+const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)},PH&appid=${API_KEY}&units=metric`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -58,7 +58,6 @@ async function fetchWeather(city) {
     return null;
   }
 }
-
 function simulatePreviousWeather(city, currentTemp) {
   const key = `weather_${city}`;
   const previous = localStorage.getItem(key);
