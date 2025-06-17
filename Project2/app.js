@@ -1,7 +1,7 @@
 const regionSelect = document.getElementById("region");
 const weatherContainer = document.getElementById("weather-container");
 
-const API_KEY = "YOUR_OPENWEATHER_API_KEY"; 
+const API_KEY = "590edf89548a4ccb718d4f0dd5daafac"; 
 
 for (const region in regionCities) {
   const option = document.createElement("option");
