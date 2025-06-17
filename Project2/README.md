@@ -19,3 +19,7 @@ A simple, responsive weather app using OpenWeather API focused on Philippine reg
 ## Deployment
 
 - Deploy to GitHub Pages, Netlify, or Vercel
+
+Sample Website:
+
+![alt text](image.png)
