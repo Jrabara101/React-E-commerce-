@@ -6,7 +6,7 @@ const regionCities = {
   "Region IV-A": ["Calamba, PH", "Antipolo, PH", "Batangas, PH", "Lucena, PH", "Trece Martires, PH"],
   "Region IV-B - MIMAROPA": ["Calapan, PH", "Puerto Princesa, PH", "Mamburao, PH", "Romblon, PH"],
   "Region V - Bicol Region": ["Legazpi, PH", "Naga, PH", "Sorsogon, PH", "Iriga, PH"],
-  "Region VI - Western Visayas": ["Iloilo City, PH", "Bacolod, PH", "Roxas City, PH", "Kalibo, PH"],
+  "Region VI - Western Visayas": ["Iloilo City, PH", "Bacolod, PH", "Roxas City, PH", "Malay, PH"],
   "Region VII": ["Cebu, PH", "Lapu-Lapu City, PH", "Mandaue, PH", "Tagbilaran, PH", "Dumaguete, PH"],
   "Region VIII - Eastern Visayas": ["Tacloban, PH", "Ormoc, PH", "Catbalogan, PH", "Borongan, PH"],
   "Region IX - Zamboanga Peninsula": ["Pagadian, PH", "Zamboanga City, PH", "Dipolog, PH", "Ipil, PH"],

@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>PH Weather Now</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="app-container">
-    <h1>PH Weather Now</h1>
-    <label for="region">Select Region:</label>
-    <select id="region">
-      <option value="">-- Select Region --</option>
-    </select>
-    <div id="weather-container" class="weather-grid"></div>
+<body class="bg-cyan-50 min-h-screen flex flex-col">
+  <div class="app-container flex-1 flex flex-col justify-center">
+    <h1 class="animate-bounce text-3xl font-bold text-cyan-700 mb-6 text-center">PH Weather Now</h1>
+    <div class="mb-4 flex flex-col items-center">
+      <label for="region" class="mb-2 text-lg font-medium text-cyan-800">Select Region:</label>
+      <select id="region" class="transition-all duration-300 focus:ring-2 focus:ring-cyan-400 rounded px-3 py-2 w-full max-w-xs border border-cyan-200 shadow">
+        <option value="">-- Select Region --</option>
+      </select>
+    </div>
+    <div id="weather-container" class="weather-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
   </div>
 
   <script src="cities.js"></script>
   <script src="app.js"></script>
 </body>
-</html>
