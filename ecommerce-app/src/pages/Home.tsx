@@ -70,22 +70,27 @@ export default function Home() {
            {/* Right: Product Images */}
           <div className="relative mt-12 md:mt-0 md:ml-12 flex flex-col items-end gap-8">
             <img
-              src="/1.png"
+              src="pictures/1.png"
               alt="Colorful Sweater"
-              className="w-[220px] md:w-[260px] rounded-xl object-cover shadow-lg"
+              className="w-[220px] md:w-[260px] rounded-xl shadow-lg relative z-10"
             />
             <img
-              src="/2.png"
+              src="pictures/2.png"
               alt="White T-shirt"
-              className="w-[180px] md:w-[220px] rounded-xl object-cover shadow-lg"
+              className="w-[180px] md:w-[220px] rounded-xl shadow-lg"
+            />
+            <img
+              src="pictures/4.png"
+              alt="White T-shirt"
+              className="w-[180px] md:w-[220px] rounded-xl shadow-lg"
             />
           </div>
           {/* Right: Hero Image */}
           <div className="relative mt-12 md:mt-0 md:ml-12 flex-1 flex justify-center">
             <img
-              src="/hero-image.png"
+              src="pictures/3.png"
               alt="Fashionable people"
-              className="w-[400px] md:w-[500px] rounded-xl object-cover"
+              className="w-[290px] md:w-[280px] rounded-xl object-cover"
             />
             {/* Decorative stars */}
             <span className="absolute top-8 left-8 text-4xl text-black">✦</span>
