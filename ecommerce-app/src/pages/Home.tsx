@@ -33,7 +33,7 @@ export default function Home() {
           <button
             aria-label="Cart"
             className="text-2xl hover:text-black transition"
-            onClick={() => navigate('/cart')}
+            onClick={() => navigate('/Cart')}
           >
             <HiOutlineShoppingCart />
           </button>
