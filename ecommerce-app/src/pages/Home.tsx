@@ -69,7 +69,7 @@ export default function Home() {
           {/* Right: Hero Image */}
           <div className="relative mt-12 md:mt-0 md:ml-12 flex-1 flex justify-center">
             <img
-              src="pictures/3.png"
+              src="pictures/3.jpeg"
               alt="Fashionable people"
               className="w-[340px] md:w-[400px] rounded-xl"
             />
