@@ -1,6 +1,7 @@
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 
+
 export default function Cart() {
   const { cartItems, removeFromCart, clearCart, updateQuantity } = useCart();
   const [promo, setPromo] = useState('');

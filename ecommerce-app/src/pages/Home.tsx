@@ -1,6 +1,6 @@
 import React from "react";
 import { HiOutlineShoppingCart, HiOutlineUser } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Home() {
@@ -18,11 +18,11 @@ export default function Home() {
       {/* Header */}
       <header className="w-full flex items-center justify-between px-8 py-6 bg-white shadow">
         <div className="text-2xl font-extrabold tracking-tight">SHOP.CO</div>
-        <nav className="flex gap-6 text-gray-700 font-medium">
-          <a href="Products">Shop</a>
-          <a href="#">On Sale</a>
-          <a href="#">New Arrivals</a>
-          <a href="#">Brands</a>
+      <nav className="flex gap-6 text-gray-700 font-medium">
+        <Link to="/products">Shop</Link>
+        <Link to="/sale">On Sale</Link>
+        <a href="#">New Arrivals</a>
+        <a href="#">Brands</a>
         </nav>
         <div className="flex items-center gap-4">
           <input
@@ -30,16 +30,12 @@ export default function Home() {
             placeholder="Search for products..."
             className="px-3 py-1 rounded bg-gray-100 border border-gray-200"
           />
-          <button
-            aria-label="Cart"
-            className="text-2xl hover:text-black transition"
-            onClick={() => navigate('/Cart')}
-          >
-            <HiOutlineShoppingCart />
-          </button>
-          <button aria-label="Account" className="text-2xl hover:text-black transition">
-            <HiOutlineUser />
-          </button>
+        <button aria-label="Cart" className="text-2xl hover:text-black transition">
+          <HiOutlineShoppingCart />
+        </button>
+        <button aria-label="Account" className="text-2xl hover:text-black transition">
+          <HiOutlineUser />
+        </button>
         </div>
       </header>
 
