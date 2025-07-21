@@ -1,7 +1,10 @@
 import React from "react";
 import { HiOutlineShoppingCart, HiOutlineUser } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div className="bg-black min-h-screen flex flex-col">
       {/* Top Banner */}
@@ -27,7 +30,11 @@ export default function Home() {
             placeholder="Search for products..."
             className="px-3 py-1 rounded bg-gray-100 border border-gray-200"
           />
-          <button aria-label="Cart" className="text-2xl hover:text-black transition">
+          <button
+            aria-label="Cart"
+            className="text-2xl hover:text-black transition"
+            onClick={() => navigate('/cart')}
+          >
             <HiOutlineShoppingCart />
           </button>
           <button aria-label="Account" className="text-2xl hover:text-black transition">
