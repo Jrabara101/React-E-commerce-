@@ -75,7 +75,7 @@ export default function Home() {
               className="w-[220px] md:w-[260px] rounded-xl object-cover shadow-lg"
             />
             <img
-              src="/2.png"
+              src="pi"
               alt="White T-shirt"
               className="w-[180px] md:w-[220px] rounded-xl object-cover shadow-lg"
             />
