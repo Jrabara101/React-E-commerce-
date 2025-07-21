@@ -67,7 +67,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-           {/* Right: Product Images */}
+          {/* Right: Product Images */}
           <div className="relative mt-12 md:mt-0 md:ml-12 flex flex-col items-end gap-8">
             <img
               src="pictures/1.png"
@@ -90,7 +90,7 @@ export default function Home() {
             <img
               src="pictures/3.png"
               alt="Fashionable people"
-              className="w-[290px] md:w-[280px] rounded-xl object-cover"
+              className="w-[290px] md:w-[280px] rounded-xl"
             />
             {/* Decorative stars */}
             <span className="absolute top-8 left-8 text-4xl text-black">✦</span>
