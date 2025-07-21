@@ -16,7 +16,7 @@ export default function Home() {
       <header className="w-full flex items-center justify-between px-8 py-6 bg-white shadow">
         <div className="text-2xl font-extrabold tracking-tight">SHOP.CO</div>
         <nav className="flex gap-6 text-gray-700 font-medium">
-          <a href="#">Shop</a>
+          <a href="Products">Shop</a>
           <a href="#">On Sale</a>
           <a href="#">New Arrivals</a>
           <a href="#">Brands</a>
