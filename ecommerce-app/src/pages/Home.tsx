@@ -67,6 +67,19 @@ export default function Home() {
               </div>
             </div>
           </div>
+           {/* Right: Product Images */}
+          <div className="relative mt-12 md:mt-0 md:ml-12 flex flex-col items-end gap-8">
+            <img
+              src="/1.png"
+              alt="Colorful Sweater"
+              className="w-[220px] md:w-[260px] rounded-xl object-cover shadow-lg"
+            />
+            <img
+              src="/2.png"
+              alt="White T-shirt"
+              className="w-[180px] md:w-[220px] rounded-xl object-cover shadow-lg"
+            />
+          </div>
           {/* Right: Hero Image */}
           <div className="relative mt-12 md:mt-0 md:ml-12 flex-1 flex justify-center">
             <img
