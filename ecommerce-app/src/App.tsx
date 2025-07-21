@@ -6,7 +6,7 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Sale from './pages/Sale';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Navbar />
@@ -19,6 +19,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
