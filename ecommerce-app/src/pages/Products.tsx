@@ -1,19 +1,75 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { HiOutlineShoppingCart, HiOutlineUser } from "react-icons/hi";
+import React, { useState } from "react";
+import ProductCard from "./ProductCard";
 
 export default function Products() {
-  const [products, setProducts] = useState([]);
-  // Dummy filter state for UI only
+  // Example static products for layout
+  const PRODUCTS = [
+    {
+      title: "Gradient Graphic T-shirt",
+      price: 145,
+      img: "/products/tshirt1.png",
+      rating: 3.5,
+    },
+    {
+      title: "Polo with Tipping Details",
+      price: 180,
+      img: "/products/tshirt2.png",
+      rating: 4.5,
+    },
+    {
+      title: "Black Striped T-shirt",
+      price: 120,
+      img: "/products/tshirt3.png",
+      rating: 5.0,
+      oldPrice: 160,
+      discount: 30,
+    },
+    {
+      title: "Skinny Fit Jeans",
+      price: 240,
+      img: "/products/jeans1.png",
+      rating: 3.5,
+      oldPrice: 260,
+      discount: 20,
+    },
+    {
+      title: "Checkered Shirt",
+      price: 180,
+      img: "/products/shirt1.png",
+      rating: 4.5,
+    },
+    {
+      title: "Sleeve Striped T-shirt",
+      price: 130,
+      img: "/products/tshirt4.png",
+      rating: 4.5,
+      oldPrice: 160,
+      discount: 30,
+    },
+    {
+      title: "Vertical Striped Shirt",
+      price: 212,
+      img: "/products/shirt2.png",
+      rating: 5.0,
+      oldPrice: 232,
+      discount: 20,
+    },
+    {
+      title: "Courage Graphic T-shirt",
+      price: 145,
+      img: "/products/tshirt5.png",
+      rating: 4.0,
+    },
+    {
+      title: "Loose Fit Bermuda Shorts",
+      price: 80,
+      img: "/products/shorts1.png",
+      rating: 3.0,
+    },
+  ];
+
   const [selectedSize, setSelectedSize] = useState("Large");
   const [selectedColor, setSelectedColor] = useState("#2563eb");
-
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => setProducts(res.data))
-      .catch((err) => console.error(err));
-  }, []);
 
   return (
     <div className="bg-[#F6F6F6] min-h-screen flex flex-col">
@@ -40,12 +96,6 @@ export default function Products() {
             placeholder="Search for products..."
             className="px-3 py-1 rounded bg-gray-100 border border-gray-200"
           />
-          <button aria-label="Cart" className="text-2xl hover:text-black transition">
-            <HiOutlineShoppingCart />
-          </button>
-          <button aria-label="Account" className="text-2xl hover:text-black transition">
-            <HiOutlineUser />
-          </button>
         </div>
       </header>
 
@@ -59,24 +109,6 @@ export default function Products() {
         {/* Filters */}
         <aside className="w-full md:w-64 bg-white rounded-2xl p-6 mb-8 md:mb-0 shadow">
           <div className="font-bold text-lg mb-4">Filters</div>
-          <div className="mb-6">
-            <div className="font-semibold mb-2">Category</div>
-            <div className="flex flex-col gap-2">
-              <label><input type="checkbox" className="mr-2" />T-shirts</label>
-              <label><input type="checkbox" className="mr-2" />Shorts</label>
-              <label><input type="checkbox" className="mr-2" />Shirts</label>
-              <label><input type="checkbox" className="mr-2" />Hoodie</label>
-              <label><input type="checkbox" className="mr-2" />Jeans</label>
-            </div>
-          </div>
-          <div className="mb-6">
-            <div className="font-semibold mb-2">Price</div>
-            <div className="flex items-center gap-2">
-              <span>$20</span>
-              <input type="range" min="20" max="200" className="flex-1 accent-black" />
-              <span>$200</span>
-            </div>
-          </div>
           <div className="mb-6">
             <div className="font-semibold mb-2">Colors</div>
             <div className="flex gap-2 flex-wrap">
@@ -108,18 +140,6 @@ export default function Products() {
               )}
             </div>
           </div>
-          <div className="mb-6">
-            <div className="font-semibold mb-2">Dress Style</div>
-            <div className="flex flex-col gap-2">
-              <label><input type="checkbox" className="mr-2" />Casual</label>
-              <label><input type="checkbox" className="mr-2" />Formal</label>
-              <label><input type="checkbox" className="mr-2" />Party</label>
-              <label><input type="checkbox" className="mr-2" />Gym</label>
-            </div>
-          </div>
-          <button className="w-full bg-black text-white py-2 rounded-full font-semibold mt-4">
-            Apply Filter
-          </button>
         </aside>
 
         {/* Products */}
@@ -127,7 +147,7 @@ export default function Products() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">Casual</h2>
             <div className="text-gray-500 text-sm">
-              Showing 1-10 of 100 Products &nbsp;|&nbsp; Sort by:{" "}
+              Showing 1-9 of 9 Products &nbsp;|&nbsp; Sort by:{" "}
               <select className="border rounded px-2 py-1">
                 <option>Most Popular</option>
                 <option>Price: Low to High</option>
@@ -136,22 +156,15 @@ export default function Products() {
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {/* Example static products for layout */}
-            <ProductCard title="Gradient Graphic T-shirt" price={145} img="/products/tshirt1.png" rating={3.5} />
-            <ProductCard title="Polo with Tipping Details" price={180} img="/products/tshirt2.png" rating={4.5} />
-            <ProductCard title="Black Striped T-shirt" price={120} img="/products/tshirt3.png" rating={5.0} oldPrice={160} discount={30} />
-            <ProductCard title="Skinny Fit Jeans" price={240} img="/products/jeans1.png" rating={3.5} oldPrice={260} discount={20} />
-            <ProductCard title="Checkered Shirt" price={180} img="/products/shirt1.png" rating={4.5} />
-            <ProductCard title="Sleeve Striped T-shirt" price={130} img="/products/tshirt4.png" rating={4.5} oldPrice={160} discount={30} />
-            <ProductCard title="Vertical Striped Shirt" price={212} img="/products/shirt2.png" rating={5.0} oldPrice={232} discount={20} />
-            <ProductCard title="Courage Graphic T-shirt" price={145} img="/products/tshirt5.png" rating={4.0} />
-            <ProductCard title="Loose Fit Bermuda Shorts" price={80} img="/products/shorts1.png" rating={3.0} />
+            {PRODUCTS.map((product) => (
+              <ProductCard key={product.title} {...product} />
+            ))}
           </div>
           {/* Pagination */}
           <div className="flex justify-between items-center mt-8">
             <button className="border px-4 py-1 rounded-full text-gray-600">Previous</button>
             <div className="flex gap-2">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+              {[1, 2, 3, 4, 5].map((n) => (
                 <button
                   key={n}
                   className={`w-8 h-8 rounded-full ${n === 1 ? "bg-black text-white" : "bg-white text-black border"}`}
@@ -254,46 +267,6 @@ export default function Products() {
           </div>
         </div>
       </footer>
-    </div>
-  );
-}
-
-// Product Card Component
-function ProductCard({
-  title,
-  price,
-  img,
-  rating,
-  oldPrice,
-  discount,
-}: {
-  title: string;
-  price: number;
-  img: string;
-  rating: number;
-  oldPrice?: number;
-  discount?: number;
-}) {
-  return (
-    <div className="bg-white rounded-xl p-4 flex flex-col items-center shadow">
-      <img src={img} alt={title} className="h-32 mb-4 object-contain" />
-      <div className="font-semibold mb-1">{title}</div>
-      <div className="flex items-center gap-1 text-yellow-500 text-sm mb-1">
-        {Array.from({ length: Math.floor(rating) }).map((_, i) => (
-          <span key={i}>★</span>
-        ))}
-        {rating % 1 !== 0 && <span>☆</span>}
-        <span className="ml-1 text-gray-500">{rating}/5</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-lg">${price}</span>
-        {oldPrice && (
-          <span className="line-through text-gray-400">${oldPrice}</span>
-        )}
-        {discount && (
-          <span className="ml-1 text-red-500 text-xs">{discount}%</span>
-        )}
-      </div>
     </div>
   );
 }

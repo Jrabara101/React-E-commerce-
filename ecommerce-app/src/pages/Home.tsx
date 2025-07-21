@@ -1,10 +1,7 @@
 import React from "react";
-import { HiOutlineShoppingCart, HiOutlineUser } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export default function Home() {
-  const navigate = useNavigate();
   return (
     <div className="bg-black min-h-screen flex flex-col">
       {/* Top Banner */}
@@ -15,34 +12,10 @@ export default function Home() {
         </a>
       </div>
 
-      {/* Header */}
-      <header className="w-full flex items-center justify-between px-8 py-6 bg-white shadow">
-        <div className="text-2xl font-extrabold tracking-tight">SHOP.CO</div>
-      <nav className="flex gap-6 text-gray-700 font-medium">
-        <Link to="/products">Shop</Link>
-        <Link to="/sale">On Sale</Link>
-        <a href="#">New Arrivals</a>
-        <a href="#">Brands</a>
-        </nav>
-        <div className="flex items-center gap-4">
-          <input
-            type="text"
-            placeholder="Search for products..."
-            className="px-3 py-1 rounded bg-gray-100 border border-gray-200"
-          />
-        <button aria-label="Cart" className="text-2xl hover:text-black transition">
-          <HiOutlineShoppingCart />
-        </button>
-        <button aria-label="Account" className="text-2xl hover:text-black transition">
-          <HiOutlineUser />
-        </button>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center bg-white relative">
+        {/* Hero */}
         <section className="w-full flex flex-col md:flex-row items-center justify-between px-8 py-16 bg-[#F6F6F6] relative">
-          {/* Left: Text */}
           <div className="max-w-lg">
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
               FIND CLOTHES<br />THAT MATCHES<br />YOUR STYLE
@@ -50,10 +23,11 @@ export default function Home() {
             <p className="text-gray-600 mb-8">
               Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
             </p>
-            <button className="bg-black text-white px-8 py-3 rounded-full font-semibold text-lg shadow hover:bg-gray-900 transition">
-              Shop Now
-            </button>
-            {/* Stats */}
+            <Link to="/products">
+              <button className="bg-black text-white px-8 py-3 rounded-full font-semibold text-lg shadow hover:bg-gray-900 transition">
+                Shop Now
+              </button>
+            </Link>
             <div className="flex gap-8 mt-12">
               <div>
                 <div className="text-2xl font-bold">200+</div>
@@ -69,14 +43,12 @@ export default function Home() {
               </div>
             </div>
           </div>
-          {/* Right: Hero Image */}
           <div className="relative mt-12 md:mt-0 md:ml-12 flex-1 flex justify-center">
             <img
               src="pictures/3.png"
               alt="Fashionable people"
               className="w-[340px] md:w-[400px] rounded-xl"
             />
-            {/* Decorative stars */}
             <span className="absolute top-8 left-8 text-4xl text-black">✦</span>
             <span className="absolute bottom-8 right-8 text-4xl text-black">✦</span>
           </div>
@@ -95,7 +67,7 @@ export default function Home() {
         <section className="w-full px-8 py-12">
           <h2 className="text-3xl font-extrabold mb-8 text-center">NEW ARRIVALS</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Product Card Example */}
+            {/* Example Product Cards */}
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
               <img src="/products/tshirt1.png" alt="T-shirt with Tape Details" className="h-32 mb-4" />
               <div className="font-semibold mb-1">T-shirt with Tape Details</div>
@@ -130,9 +102,11 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center mt-8">
-            <button className="border border-black px-8 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition">
-              View All
-            </button>
+            <Link to="/products">
+              <button className="border border-black px-8 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition">
+                View All
+              </button>
+            </Link>
           </div>
         </section>
 
@@ -170,9 +144,11 @@ export default function Home() {
             </div>
           </div>
           <div className="flex justify-center mt-8">
-            <button className="border border-black px-8 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition">
-              View All
-            </button>
+            <Link to="/products">
+              <button className="border border-black px-8 py-2 rounded-full font-semibold hover:bg-black hover:text-white transition">
+                View All
+              </button>
+            </Link>
           </div>
         </section>
 
@@ -263,7 +239,7 @@ export default function Home() {
           <div>
             <div className="text-2xl font-extrabold mb-4">SHOP.CO</div>
             <div className="text-gray-500 mb-4 max-w-xs">
-              We choose the styles that suit your style and which you’re proud to wear. From women to men.
+              We have clothes that suit your style and which you’re proud to wear. From women to men.
             </div>
             <div className="flex gap-4">
               <a href="#"><img src="/icons/facebook.svg" alt="Facebook" className="h-6" /></a>
