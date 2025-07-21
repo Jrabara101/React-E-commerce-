@@ -1,17 +1,14 @@
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
 
-
 export default function Cart() {
   const { cartItems, removeFromCart, clearCart, updateQuantity } = useCart();
   const [promo, setPromo] = useState('');
   const [newsletter, setNewsletter] = useState('');
 
-  // Calculate subtotal
+  // Calculate subtotal, discount, delivery, total
   const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  // Example: 20% discount
   const discount = subtotal * 0.2;
-  // Example: fixed delivery fee
   const deliveryFee = cartItems.length > 0 ? 15 : 0;
   const total = subtotal - discount + deliveryFee;
 
@@ -113,7 +110,7 @@ export default function Cart() {
             onChange={e => setNewsletter(e.target.value)}
           />
           <button className="bg-white text-black px-4 py-2 rounded font-semibold text-sm">
-            Subscribe to Newsletter
+            Subscribe
           </button>
         </div>
       </div>
@@ -121,31 +118,7 @@ export default function Cart() {
       {/* Footer */}
       <footer className="text-xs text-gray-500 mt-8">
         <div className="font-bold text-black mb-2">SHOP.CO</div>
-        <div className="mb-4">We have clothes that suits your style and which you're proud to wear. From women to men.</div>
-        <div className="flex gap-4 mb-4">
-          <a href="#" className="hover:underline">About</a>
-          <a href="#" className="hover:underline">Features</a>
-          <a href="#" className="hover:underline">Works</a>
-          <a href="#" className="hover:underline">Career</a>
-        </div>
-        <div className="flex gap-4 mb-4">
-          <a href="#" className="hover:underline">Customer Support</a>
-          <a href="#" className="hover:underline">Delivery Details</a>
-          <a href="#" className="hover:underline">Terms & Conditions</a>
-          <a href="#" className="hover:underline">Privacy Policy</a>
-        </div>
-        <div className="flex gap-4 mb-4">
-          <a href="#" className="hover:underline">FAQ</a>
-          <a href="#" className="hover:underline">Manage Deliveries</a>
-          <a href="#" className="hover:underline">Orders</a>
-          <a href="#" className="hover:underline">Payment</a>
-        </div>
-        <div className="flex gap-4 mb-4">
-          <a href="#" className="hover:underline">Free eBook</a>
-          <a href="#" className="hover:underline">Development Tutorial</a>
-          <a href="#" className="hover:underline">How to – Blog</a>
-          <a href="#" className="hover:underline">Youtube Playlist</a>
-        </div>
+        <div className="mb-4">We have clothes that suit your style and which you're proud to wear. From women to men.</div>
         <div className="mb-2">Shop.co © 2000-2023, All Rights Reserved</div>
         <div className="flex gap-2">
           <img src="/visa.svg" alt="Visa" className="h-5" />
