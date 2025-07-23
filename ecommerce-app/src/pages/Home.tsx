@@ -11,7 +11,28 @@ export default function Home() {
           Sign Up Now
         </a>
       </div>
-
+      {/* Navbar */}
+      <nav className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <Link to="/" className="text-2xl font-bold text-black">
+            Shop.co
+          </Link>
+          <div className="flex space-x-6">
+            <Link to="/products" className="text-gray-700 hover:text-black">
+              Products
+            </Link>
+            <Link to="/cart" className="text-gray-700 hover:text-black">
+              Cart
+            </Link>
+            <Link to="/login" className="text-gray-700 hover:text-black">
+              Login
+            </Link>
+            <Link to="/sale" className="text-gray-700 hover:text-black">
+              Sale
+            </Link>
+          </div>
+        </div>
+      </nav>
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center bg-white relative">
         {/* Hero */}
