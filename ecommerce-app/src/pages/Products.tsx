@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProductCard from "./ProductCard";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   // Example static products for layout
@@ -81,23 +82,25 @@ export default function Products() {
         </a>
       </div>
 
-      {/* Header */}
-      <header className="w-full flex items-center justify-between px-8 py-6 bg-white shadow">
-        <div className="text-2xl font-extrabold tracking-tight">SHOP.CO</div>
-        <nav className="flex gap-6 text-gray-700 font-medium">
-          <a href="#">Shop</a>
-          <a href="#">On Sale</a>
-          <a href="#">New Arrivals</a>
-          <a href="#">Brands</a>
-        </nav>
-        <div className="flex items-center gap-4">
-          <input
-            type="text"
-            placeholder="Search for products..."
-            className="px-3 py-1 rounded bg-gray-100 border border-gray-200"
-          />
+           {/* Navbar */}
+      <nav className="bg-white shadow animate-fade-in-up">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+          <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition">
+            Shop.co
+          </Link>
+          <div className="flex space-x-6">
+            {["products", "cart", "login", "sale"].map((item) => (
+              <Link
+                key={item}
+                to={`/${item}`}
+                className="text-gray-700 hover:text-black transition duration-200"
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </Link>
+            ))}
+          </div>
         </div>
-      </header>
+      </nav>
 
       {/* Breadcrumb */}
       <div className="w-full bg-[#F6F6F6] px-8 py-4 text-gray-500 text-sm">
