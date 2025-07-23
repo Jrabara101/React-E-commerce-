@@ -1,34 +1,44 @@
 import { useCart } from '../context/CartContext';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import React from 'react';
-
 
 export default function Cart() {
-  const { cartItems, removeFromCart, clearCart, updateQuantity } = useCart();
+  const { cartItems, removeFromCart, updateQuantity } = useCart();
   const [promo, setPromo] = useState('');
   const [newsletter, setNewsletter] = useState('');
+  const [discountPercent, setDiscountPercent] = useState(0.2);
 
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-  const discount = subtotal * 0.2;
+  const subtotal = useMemo(() => cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0), [cartItems]);
+  const discount = useMemo(() => subtotal * discountPercent, [subtotal, discountPercent]);
   const deliveryFee = cartItems.length > 0 ? 15 : 0;
   const total = subtotal - discount + deliveryFee;
 
+  const applyPromo = () => {
+    if (promo.toLowerCase() === 'save10') {
+      setDiscountPercent(0.1);
+    } else if (promo.toLowerCase() === 'save25') {
+      setDiscountPercent(0.25);
+    } else {
+      alert('Invalid promo code.');
+    }
+  };
+
   return (
-    <motion.div 
+    <motion.div
       className="max-w-md mx-auto bg-[#fafafa] min-h-screen px-4 py-6"
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.4 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.5 }}
     >
+      {/* Breadcrumb */}
       <nav className="text-xs text-gray-400 mb-2">
         Home &gt; <span className="text-black font-medium">Cart</span>
       </nav>
 
-      <motion.h2 className="text-2xl font-bold mb-4 tracking-tight" initial={{ y: -20 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>YOUR CART</motion.h2>
+      <h2 className="text-2xl font-bold mb-4 tracking-tight">YOUR CART</h2>
 
+      {/* Cart Items */}
       <div className="space-y-4 mb-6">
         <AnimatePresence>
           {cartItems.length === 0 ? (
@@ -37,7 +47,9 @@ export default function Cart() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-            >No items in cart.</motion.p>
+            >
+              No items in cart.
+            </motion.p>
           ) : (
             cartItems.map(item => (
               <motion.div
@@ -82,34 +94,20 @@ export default function Cart() {
         </AnimatePresence>
       </div>
 
-{/* Navbar */}
-      <nav className="bg-white shadow animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition">
-            Shop.co
-          </Link>
-          <div className="flex space-x-6">
-            {["products", "cart", "login", "sale"].map((item) => (
-              <Link
-                key={item}
-                to={`/${item}`}
-                className="text-gray-700 hover:text-black transition duration-200"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      <motion.div className="bg-white rounded-xl p-5 shadow mb-6" initial={{ y: 20 }} animate={{ y: 0 }} transition={{ duration: 0.4 }}>
+      {/* Order Summary */}
+      <motion.div
+        className="bg-white rounded-xl p-5 shadow mb-6"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1 }}
+      >
         <h3 className="font-semibold mb-4">Order Summary</h3>
         <div className="flex justify-between mb-2 text-sm">
           <span>Subtotal</span>
           <span>${subtotal.toFixed(0)}</span>
         </div>
         <div className="flex justify-between mb-2 text-sm">
-          <span>Discount (-20%)</span>
+          <span>Discount (-{(discountPercent * 100).toFixed(0)}%)</span>
           <span className="text-red-500">-${discount.toFixed(0)}</span>
         </div>
         <div className="flex justify-between mb-2 text-sm">
@@ -129,14 +127,25 @@ export default function Cart() {
             value={promo}
             onChange={e => setPromo(e.target.value)}
           />
-          <button className="bg-black text-white px-4 py-2 rounded font-semibold text-sm">Apply</button>
+          <button
+            onClick={applyPromo}
+            className="bg-black text-white px-4 py-2 rounded font-semibold text-sm"
+          >
+            Apply
+          </button>
         </div>
-        <motion.button whileTap={{ scale: 0.98 }} className="w-full bg-black text-white py-3 rounded font-semibold text-base flex items-center justify-center gap-2">
+        <button className="w-full bg-black text-white py-3 rounded font-semibold text-base flex items-center justify-center gap-2">
           Go to Checkout <span className="text-lg">→</span>
-        </motion.button>
+        </button>
       </motion.div>
 
-      <motion.div className="bg-black rounded-xl p-5 mb-6 text-white text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+      {/* Newsletter */}
+      <motion.div
+        className="bg-black rounded-xl p-5 mb-6 text-white text-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2 }}
+      >
         <div className="font-bold text-lg mb-2 leading-tight">
           STAY UPTO DATE<br />ABOUT OUR LATEST OFFERS
         </div>
@@ -154,6 +163,7 @@ export default function Cart() {
         </div>
       </motion.div>
 
+      {/* Footer */}
       <footer className="text-xs text-gray-500 mt-8">
         <div className="font-bold text-black mb-2">SHOP.CO</div>
         <div className="mb-4">We have clothes that suit your style and which you're proud to wear. From women to men.</div>
