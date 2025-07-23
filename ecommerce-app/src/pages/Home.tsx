@@ -55,12 +55,12 @@ export default function Home() {
         </section>
 
         {/* Brand Logos */}
-        <div className="bg-black py-8 flex justify-center gap-12 w-full">
-          <img src="/brands/versace.png" alt="Versace" className="h-8" />
-          <img src="/brands/zara.png" alt="Zara" className="h-8" />
-          <img src="/brands/gucci.png" alt="Gucci" className="h-8" />
-          <img src="/brands/prada.png" alt="Prada" className="h-8" />
-          <img src="/brands/calvin-klein.png" alt="Calvin Klein" className="h-8" />
+        <div className="py-8 flex justify-center gap-12 w-full">
+          <img src="/pictures/a.png" alt="Versace" className="h-12" />
+          <img src="/pictures/q.png" alt="Zara" className="h-8" />
+          <img src="/pictures/w.png" alt="Gucci" className="h-8" />
+          <img src="/pictures/e.png" alt="Prada" className="h-8" />
+          <img src="/pictures/r.png" alt="Calvin Klein" className="h-8" />
         </div>
 
         {/* New Arrivals */}
@@ -69,13 +69,13 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {/* Example Product Cards */}
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/tshirt1.png" alt="T-shirt with Tape Details" className="h-32 mb-4" />
+              <img src="/pictures/5.png" alt="T-shirt with Tape Details" className="h-32 mb-4" />
               <div className="font-semibold mb-1">T-shirt with Tape Details</div>
               <div className="text-yellow-500 text-sm mb-1">★★★★☆ 4.6/5</div>
               <div className="font-bold text-lg">$120</div>
             </div>
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/jeans1.png" alt="Skinny Fit Jeans" className="h-32 mb-4" />
+              <img src="/pictures/6.png" alt="Skinny Fit Jeans" className="h-32 mb-4" />
               <div className="font-semibold mb-1">Skinny Fit Jeans</div>
               <div className="text-yellow-500 text-sm mb-1">★★★☆☆ 3.5/5</div>
               <div>
@@ -85,14 +85,14 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/shirt1.png" alt="Checkered Shirt" className="h-32 mb-4" />
+              <img src="/pictures/7.png" alt="Checkered Shirt" className="h-32 mb-4" />
               <div className="font-semibold mb-1">Checkered Shirt</div>
               <div className="text-yellow-500 text-sm mb-1">★★★★☆ 4.5/5</div>
               <div className="font-bold text-lg">$180</div>
             </div>
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/tshirt2.png" alt="Sleeve Striped T-shirt" className="h-32 mb-4" />
-              <div className="font-semibold mb-1">Sleeve Striped T-shirt</div>
+              <img src="/pictures/1.png" alt="Sleeve Striped T-shirt" className="h-32 mb-4" />
+              <div className="font-semibold mb-1">White Tshirt</div>
               <div className="text-yellow-500 text-sm mb-1">★★★★☆ 4.5/5</div>
               <div>
                 <span className="font-bold text-lg">$130</span>
@@ -115,8 +115,8 @@ export default function Home() {
           <h2 className="text-3xl font-extrabold mb-8 text-center">TOP SELLING</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/shirt2.png" alt="Vertical Striped Shirt" className="h-32 mb-4" />
-              <div className="font-semibold mb-1">Vertical Striped Shirt</div>
+              <img src="/pictures/2.png" alt="Vertical Striped Shirt" className="h-32 mb-4" />
+              <div className="font-semibold mb-1">Long Shirt</div>
               <div className="text-yellow-500 text-sm mb-1">★★★★★ 5.0/5</div>
               <div>
                 <span className="font-bold text-lg">$212</span>
@@ -125,19 +125,19 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/tshirt3.png" alt="Courage Graphic T-shirt" className="h-32 mb-4" />
-              <div className="font-semibold mb-1">Courage Graphic T-shirt</div>
+              <img src="/pictures/4.png" alt="Courage Graphic T-shirt" className="h-32 mb-4" />
+              <div className="font-semibold mb-1">Colored T-shirt</div>
               <div className="text-yellow-500 text-sm mb-1">★★★★☆ 4.0/5</div>
               <div className="font-bold text-lg">$145</div>
             </div>
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/shorts1.png" alt="Loose Fit Bermuda Shorts" className="h-32 mb-4" />
+              <img src="/pictures/8.png" alt="Loose Fit Bermuda Shorts" className="h-32 mb-4" />
               <div className="font-semibold mb-1">Loose Fit Bermuda Shorts</div>
               <div className="text-yellow-500 text-sm mb-1">★★★☆☆ 3.0/5</div>
               <div className="font-bold text-lg">$80</div>
             </div>
             <div className="bg-[#F6F6F6] rounded-xl p-4 flex flex-col items-center">
-              <img src="/products/jeans2.png" alt="Faded Skinny Jeans" className="h-32 mb-4" />
+              <img src="/pictures/9.png" alt="Faded Skinny Jeans" className="h-32 mb-4" />
               <div className="font-semibold mb-1">Faded Skinny Jeans</div>
               <div className="text-yellow-500 text-sm mb-1">★★★★☆ 4.5/5</div>
               <div className="font-bold text-lg">$210</div>
@@ -155,22 +155,30 @@ export default function Home() {
         {/* Browse by Dress Style */}
         <section className="w-full px-8 py-12">
           <h2 className="text-3xl font-extrabold mb-8 text-center">BROWSE BY DRESS STYLE</h2>
-          <div className="bg-[#F6F6F6] rounded-2xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="flex flex-col items-center">
-              <img src="/styles/casual.png" alt="Casual" className="h-24 mb-2 rounded-lg object-cover" />
-              <div className="font-semibold">Casual</div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src="/styles/formal.png" alt="Formal" className="h-24 mb-2 rounded-lg object-cover" />
-              <div className="font-semibold">Formal</div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src="/styles/party.png" alt="Party" className="h-24 mb-2 rounded-lg object-cover" />
-              <div className="font-semibold">Party</div>
-            </div>
-            <div className="flex flex-col items-center">
-              <img src="/styles/gym.png" alt="Gym" className="h-24 mb-2 rounded-lg object-cover" />
-              <div className="font-semibold">Gym</div>
+          <div className="bg-[#F6F6F6] rounded-2xl p-8 overflow-x-auto">
+            <div className="flex gap-8 snap-x snap-mandatory">
+              {[
+                { src: "/pictures/1.jpg", alt: "Casual", label: "Casual" },
+                { src: "/pictures/10.png", alt: "Formal", label: "Formal" },
+                { src: "/pictures/1.jpeg", alt: "Party", label: "Party" },
+                { src: "/pictures/2.jpg", alt: "Gym", label: "Gym" },
+                { src: "/pictures/3.jpg", alt: "Beach", label: "Beach" },
+                { src: "/pictures/4.jpg", alt: "Winter", label: "Winter" },
+                { src: "/pictures/5.jpg", alt: "Summer", label: "Summer" },
+                { src: "/pictures/11.png", alt: "Spring", label: "Spring" },
+              ].map((item, idx) => (
+                <div
+                  key={item.alt}
+                  className="flex flex-col items-center min-w-[180px] snap-center"
+                >
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="w-40 h-40 mb-4 rounded-lg object-cover"
+                  />
+                  <div className="font-semibold">{item.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
