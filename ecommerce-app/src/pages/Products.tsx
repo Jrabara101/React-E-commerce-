@@ -8,19 +8,19 @@ export default function Products() {
     {
       title: "Gradient Graphic T-shirt",
       price: 145,
-      img: "/products/tshirt1.png",
+      img: "/pictures/5.jpeg",
       rating: 3.5,
     },
     {
       title: "Polo with Tipping Details",
       price: 180,
-      img: "/products/tshirt2.png",
+      img: "/pictures/4.jpeg",
       rating: 4.5,
     },
     {
       title: "Black Striped T-shirt",
       price: 120,
-      img: "/products/tshirt3.png",
+      img: "/pictures/13.png",
       rating: 5.0,
       oldPrice: 160,
       discount: 30,
@@ -28,7 +28,7 @@ export default function Products() {
     {
       title: "Skinny Fit Jeans",
       price: 240,
-      img: "/products/jeans1.png",
+      img: "/pictures/15.png",
       rating: 3.5,
       oldPrice: 260,
       discount: 20,
@@ -36,13 +36,13 @@ export default function Products() {
     {
       title: "Checkered Shirt",
       price: 180,
-      img: "/products/shirt1.png",
+      img: "/pictures/17.png",
       rating: 4.5,
     },
     {
       title: "Sleeve Striped T-shirt",
       price: 130,
-      img: "/products/tshirt4.png",
+      img: "/pictures/18.png",
       rating: 4.5,
       oldPrice: 160,
       discount: 30,
@@ -50,7 +50,7 @@ export default function Products() {
     {
       title: "Vertical Striped Shirt",
       price: 212,
-      img: "/products/shirt2.png",
+      img: "/pictures/19.png",
       rating: 5.0,
       oldPrice: 232,
       discount: 20,
@@ -58,13 +58,13 @@ export default function Products() {
     {
       title: "Courage Graphic T-shirt",
       price: 145,
-      img: "/products/tshirt5.png",
+      img: "/pictures/6.jpg",
       rating: 4.0,
     },
     {
       title: "Loose Fit Bermuda Shorts",
       price: 80,
-      img: "/products/shorts1.png",
+      img: "/pictures/20.png",
       rating: 3.0,
     },
   ];
