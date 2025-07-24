@@ -12,13 +12,15 @@ const DRESS_STYLES = ["Casual", "Formal", "Party", "Gym"];
 const PRODUCTS = [
   {
     name: "Gradient Graphic T-shirt",
-    price: 145,
+    price: 100,
+    oldPrice: 180,
     rating: 3.5,
     image: "/products/tshirt1.png"
   },
   {
     name: "Polo with Tipping Details",
-    price: 180,
+    price: 130,
+    oldPrice: 150,
     rating: 4.5,
     image: "/products/tshirt2.png"
   },
