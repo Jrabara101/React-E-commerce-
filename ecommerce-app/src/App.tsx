@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Products from './pages/Products';
@@ -9,13 +9,22 @@ import Sale from './pages/Sale';
 const App: React.FC = () => {
   return (
     <Router>
-      <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
+        {/* Auth routes without Navbar */}
         <Route path="/login" element={<Login />} />
-        <Route path="/sale" element={<Sale />} />
+
+        {/* Routes with shared Navbar */}
+        <Route element={
+          <>
+            <Navbar />
+            <Outlet />
+          </>
+        }>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/sale" element={<Sale />} />
+        </Route>
       </Routes>
     </Router>
   );
