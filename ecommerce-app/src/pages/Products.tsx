@@ -211,11 +211,19 @@ export default function Products() {
             <div className="text-gray-500 mb-4 max-w-xs">
               We have clothes that suits your style and which you’re proud to wear. From women to men.
             </div>
-            <div className="flex gap-4">
-              <a href="#"><img src="/icons/facebook.svg" alt="Facebook" className="h-6" /></a>
-              <a href="#"><img src="/icons/twitter.svg" alt="Twitter" className="h-6" /></a>
-              <a href="#"><img src="/icons/instagram.svg" alt="Instagram" className="h-6" /></a>
-              <a href="#"><img src="/icons/youtube.svg" alt="YouTube" className="h-6" /></a>
+            <div className="flex space-x-4 items-center">
+              <a href="https://www.facebook.com/">
+                <img src="/pictures/facebook.png" alt="Facebook" className="h-10 w-10" />
+              </a>
+              <a href="https://x.com/home">
+                <img src="/pictures/x.png" alt="Twitter" className="h-13 w-9" />
+              </a>
+              <a href="https://www.instagram.com/">
+                <img src="/pictures/instagram.png" alt="Instagram" className="h-10 w-10" />
+              </a>
+              <a href="https://www.youtube.com/">
+                <img src="/pictures/youtube.png" alt="YouTube" className="h-10 w-13" />
+              </a>
             </div>
           </div>
           <div className="flex flex-wrap gap-12">
