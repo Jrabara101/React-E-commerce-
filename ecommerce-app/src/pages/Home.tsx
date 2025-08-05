@@ -202,13 +202,18 @@ export default function Home() {
               We have clothes that suit your style and which you’re proud to wear. From women to men.
             </div>
             <div className="flex gap-4">
-              {["facebook", "twitter", "instagram", "youtube"].map((icon, i) => (
+              {["facebook", "x", "instagram", "youtube"].map((icon, i) => (
                 <a key={i} href="#" className="hover:scale-125 transition">
-                  <img src={`/icons/${icon}.svg`} alt={icon} className="h-6" />
+                  <img
+                    src={`/pictures/${icon}.png`}
+                    alt={`${icon} logo`}
+                    className="h-10 w-10 object-contain"
+                  />
                 </a>
               ))}
             </div>
           </div>
+
           {/* Footer Links */}
           {/* Same as your original code — you can animate or add hover scale effects similarly */}
         </div>
@@ -217,8 +222,8 @@ export default function Home() {
             Shop.co © 2000-2023, All Rights Reserved
           </div>
           <div className="flex gap-4 mt-4 md:mt-0">
-            {["visa", "mastercard", "paypal", "applepay", "googlepay"].map((p, i) => (
-              <img key={i} src={`/icons/${p}.svg`} alt={p} className="h-6 hover:scale-110 transition" />
+            {["Visa", "Mastercard", "Paypal", "Apple", "Google"].map((p, i) => (
+              <img key={i} src={`/pictures/${p}.png`} alt={p} className="h-6 hover:scale-110 transition" />
             ))}
           </div>
         </div>

@@ -270,11 +270,11 @@ export default function Products() {
             Shop.co © 2000-2023, All Rights Reserved
           </div>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <img src="/icons/visa.svg" alt="Visa" className="h-6" />
-            <img src="/icons/mastercard.svg" alt="Mastercard" className="h-6" />
-            <img src="/icons/paypal.svg" alt="Paypal" className="h-6" />
-            <img src="/icons/applepay.svg" alt="Apple Pay" className="h-6" />
-            <img src="/icons/googlepay.svg" alt="Google Pay" className="h-6" />
+            <img src="/pictures/visa.png" alt="Visa" className="h-6" />
+            <img src="/pictures/Mastercard.png" alt="Mastercard" className="h-6" />
+            <img src="/pictures/Paypal.png" alt="Paypal" className="h-6" />
+            <img src="/pictures/Apple.png" alt="Apple Pay" className="h-6" />
+            <img src="/pictures/Google.png" alt="Google Pay" className="h-6" />
           </div>
         </div>
       </footer>

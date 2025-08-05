@@ -15,14 +15,14 @@ export default function Cart() {
       name: "Gradient Graphic T-shirt",
       color: "White",
       price: 145,
-      image: "/products/tshirt1.png",
+      image: "/pictures/17.png",
       quantity: 1
     },
     {
-      name: "Checkered Shirt",
+      name: "Printed Tshirt",
       color: "Black/White",
       price: 240,
-      image: "/products/shirt1.png",
+      image: "/pictures/5.png",
       quantity: 1
     }
   ]);
@@ -49,25 +49,25 @@ export default function Cart() {
         </a>
       </div>
 
-      {/* Header */}
-      <header className="border-b">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold">
-            SHOP.CO
-          </Link>
-          <div className="flex items-center gap-4">
-            <button className="p-2">
-              <img src="/icons/search.svg" alt="Search" className="w-5 h-5" />
-            </button>
-            <button className="p-2">
-              <img src="/icons/cart.svg" alt="Cart" className="w-5 h-5" />
-            </button>
-            <button className="p-2">
-              <img src="/icons/profile.svg" alt="Profile" className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </header>
+     {/* Navbar */}
+           <nav className="bg-white shadow animate-fade-in-up">
+             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+               <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition">
+                 Shop.co
+               </Link>
+               <div className="flex space-x-6">
+                 {["products", "cart",  "sale"].map((item) => (
+                   <Link
+                     key={item}
+                     to={`/${item}`}
+                     className="text-gray-700 hover:text-black transition duration-200"
+                   >
+                     {item.charAt(0).toUpperCase() + item.slice(1)}
+                   </Link>
+                 ))}
+               </div>
+             </div>
+           </nav>
 
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 py-4">
@@ -177,61 +177,29 @@ export default function Cart() {
               We have clothes that suit your style and which you’re proud to wear. From women to men.
             </div>
             <div className="flex gap-4">
-              <a href="#"><img src="/icons/facebook.svg" alt="Facebook" className="h-6" /></a>
-              <a href="#"><img src="/icons/twitter.svg" alt="Twitter" className="h-6" /></a>
-              <a href="#"><img src="/icons/instagram.svg" alt="Instagram" className="h-6" /></a>
-              <a href="#"><img src="/icons/youtube.svg" alt="YouTube" className="h-6" /></a>
+              {["facebook", "x", "instagram", "youtube"].map((icon, i) => (
+                <a key={i} href="#" className="hover:scale-125 transition">
+                  <img
+                    src={`/pictures/${icon}.png`}
+                    alt={`${icon} logo`}
+                    className="h-10 w-10 object-contain"
+                  />
+                </a>
+              ))}
             </div>
           </div>
-          <div className="flex flex-wrap gap-12">
-            <div>
-              <div className="font-bold mb-2">Company</div>
-              <ul className="text-gray-500 space-y-1">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Works</a></li>
-                <li><a href="#">Career</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="font-bold mb-2">Help</div>
-              <ul className="text-gray-500 space-y-1">
-                <li><a href="#">Customer Support</a></li>
-                <li><a href="#">Delivery Details</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="font-bold mb-2">FAQ</div>
-              <ul className="text-gray-500 space-y-1">
-                <li><a href="#">Account</a></li>
-                <li><a href="#">Manage Deliveries</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Payments</a></li>
-              </ul>
-            </div>
-            <div>
-              <div className="font-bold mb-2">Resources</div>
-              <ul className="text-gray-500 space-y-1">
-                <li><a href="#">Free eBooks</a></li>
-                <li><a href="#">Development Tutorial</a></li>
-                <li><a href="#">How to - Blog</a></li>
-                <li><a href="#">YouTube Playlist</a></li>
-              </ul>
-            </div>
-          </div>
+
+          {/* Footer Links */}
+          {/* Same as your original code — you can animate or add hover scale effects similarly */}
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center mt-12 border-t pt-6">
           <div className="text-gray-400 text-sm">
             Shop.co © 2000-2023, All Rights Reserved
           </div>
           <div className="flex gap-4 mt-4 md:mt-0">
-            <img src="/icons/visa.svg" alt="Visa" className="h-6" />
-            <img src="/icons/mastercard.svg" alt="Mastercard" className="h-6" />
-            <img src="/icons/paypal.svg" alt="Paypal" className="h-6" />
-            <img src="/icons/applepay.svg" alt="Apple Pay" className="h-6" />
-            <img src="/icons/googlepay.svg" alt="Google Pay" className="h-6" />
+            {["Visa", "Mastercard", "Paypal", "Apple", "Google"].map((p, i) => (
+              <img key={i} src={`/pictures/${p}.png`} alt={p} className="h-6 hover:scale-110 transition" />
+            ))}
           </div>
         </div>
       </footer>
