@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react"; 
 import ProductCard from "./ProductCard";
-import { Link } from "react-router-dom";
 
 export default function Products() {
   // Example static products for layout
@@ -74,37 +73,10 @@ export default function Products() {
 
   return (
     <div className="bg-[#F6F6F6] min-h-screen flex flex-col">
-      {/* Top Banner */}
-      <div className="bg-black text-white text-center py-2 text-sm">
-        Sign up and get 20% off your first order.{" "}
-        <a href="#" className="underline font-semibold">
-          Sign Up Now
-        </a>
-      </div>
-
-           {/* Navbar */}
-      <nav className="bg-white shadow animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition">
-            Shop.co
-          </Link>
-          <div className="flex space-x-6">
-            {["products", "cart", "login", "sale"].map((item) => (
-              <Link
-                key={item}
-                to={`/${item}`}
-                className="text-gray-700 hover:text-black transition duration-200"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-
       {/* Breadcrumb */}
       <div className="w-full bg-[#F6F6F6] px-8 py-4 text-gray-500 text-sm">
-        Home <span className="mx-2">›</span> <span className="text-black font-semibold">Casual</span>
+        Home <span className="mx-2">›</span>{" "}
+        <span className="text-black font-semibold">Casual</span>
       </div>
 
       {/* Main Content */}
@@ -115,32 +87,54 @@ export default function Products() {
           <div className="mb-6">
             <div className="font-semibold mb-2">Colors</div>
             <div className="flex gap-2 flex-wrap">
-              {["#fde047", "#f87171", "#2563eb", "#22d3ee", "#a3e635", "#f472b6", "#a78bfa", "#000", "#fff"].map(
-                (color) => (
-                  <button
-                    key={color}
-                    className={`w-6 h-6 rounded-full border-2 ${selectedColor === color ? "border-black" : "border-white"}`}
-                    style={{ background: color }}
-                    onClick={() => setSelectedColor(color)}
-                  />
-                )
-              )}
+              {[
+                "#fde047",
+                "#f87171",
+                "#2563eb",
+                "#22d3ee",
+                "#a3e635",
+                "#f472b6",
+                "#a78bfa",
+                "#000",
+                "#fff",
+              ].map((color) => (
+                <button
+                  key={color}
+                  className={`w-6 h-6 rounded-full border-2 ${
+                    selectedColor === color ? "border-black" : "border-white"
+                  }`}
+                  style={{ background: color }}
+                  onClick={() => setSelectedColor(color)}
+                />
+              ))}
             </div>
           </div>
           <div className="mb-6">
             <div className="font-semibold mb-2">Size</div>
             <div className="flex gap-2 flex-wrap">
-              {["XX-Small", "X-Small", "Small", "Medium", "Large", "X-Large", "XX-Large", "3X-Large", "4X-Large"].map(
-                (size) => (
-                  <button
-                    key={size}
-                    className={`px-3 py-1 rounded-full border ${selectedSize === size ? "bg-black text-white" : "bg-white text-black"}`}
-                    onClick={() => setSelectedSize(size)}
-                  >
-                    {size}
-                  </button>
-                )
-              )}
+              {[
+                "XX-Small",
+                "X-Small",
+                "Small",
+                "Medium",
+                "Large",
+                "X-Large",
+                "XX-Large",
+                "3X-Large",
+                "4X-Large",
+              ].map((size) => (
+                <button
+                  key={size}
+                  className={`px-3 py-1 rounded-full border ${
+                    selectedSize === size
+                      ? "bg-black text-white"
+                      : "bg-white text-black"
+                  }`}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  {size}
+                </button>
+              ))}
             </div>
           </div>
         </aside>
@@ -163,20 +157,29 @@ export default function Products() {
               <ProductCard key={product.title} {...product} />
             ))}
           </div>
+
           {/* Pagination */}
           <div className="flex justify-between items-center mt-8">
-            <button className="border px-4 py-1 rounded-full text-gray-600">Previous</button>
+            <button className="border px-4 py-1 rounded-full text-gray-600">
+              Previous
+            </button>
             <div className="flex gap-2">
               {[1, 2, 3, 4, 5].map((n) => (
                 <button
                   key={n}
-                  className={`w-8 h-8 rounded-full ${n === 1 ? "bg-black text-white" : "bg-white text-black border"}`}
+                  className={`w-8 h-8 rounded-full ${
+                    n === 1
+                      ? "bg-black text-white"
+                      : "bg-white text-black border"
+                  }`}
                 >
                   {n}
                 </button>
               ))}
             </div>
-            <button className="border px-4 py-1 rounded-full text-gray-600">Next</button>
+            <button className="border px-4 py-1 rounded-full text-gray-600">
+              Next
+            </button>
           </div>
         </section>
       </main>
@@ -209,20 +212,33 @@ export default function Products() {
           <div>
             <div className="text-2xl font-extrabold mb-4">SHOP.CO</div>
             <div className="text-gray-500 mb-4 max-w-xs">
-              We have clothes that suits your style and which you’re proud to wear. From women to men.
+              We have clothes that suits your style and which you’re proud to
+              wear. From women to men.
             </div>
             <div className="flex space-x-4 items-center">
               <a href="https://www.facebook.com/">
-                <img src="/pictures/facebook.png" alt="Facebook" className="h-10 w-10" />
+                <img
+                  src="/pictures/facebook.png"
+                  alt="Facebook"
+                  className="h-10 w-10"
+                />
               </a>
               <a href="https://x.com/home">
                 <img src="/pictures/x.png" alt="Twitter" className="h-13 w-9" />
               </a>
               <a href="https://www.instagram.com/">
-                <img src="/pictures/instagram.png" alt="Instagram" className="h-10 w-10" />
+                <img
+                  src="/pictures/instagram.png"
+                  alt="Instagram"
+                  className="h-10 w-10"
+                />
               </a>
               <a href="https://www.youtube.com/">
-                <img src="/pictures/youtube.png" alt="YouTube" className="h-10 w-13" />
+                <img
+                  src="/pictures/youtube.png"
+                  alt="YouTube"
+                  className="h-10 w-13"
+                />
               </a>
             </div>
           </div>
@@ -230,37 +246,69 @@ export default function Products() {
             <div>
               <div className="font-bold mb-2">Company</div>
               <ul className="text-gray-500 space-y-1">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Works</a></li>
-                <li><a href="#">Career</a></li>
+                <li>
+                  <a href="#">About</a>
+                </li>
+                <li>
+                  <a href="#">Features</a>
+                </li>
+                <li>
+                  <a href="#">Works</a>
+                </li>
+                <li>
+                  <a href="#">Career</a>
+                </li>
               </ul>
             </div>
             <div>
               <div className="font-bold mb-2">Help</div>
               <ul className="text-gray-500 space-y-1">
-                <li><a href="#">Customer Support</a></li>
-                <li><a href="#">Delivery Details</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li>
+                  <a href="#">Customer Support</a>
+                </li>
+                <li>
+                  <a href="#">Delivery Details</a>
+                </li>
+                <li>
+                  <a href="#">Terms & Conditions</a>
+                </li>
+                <li>
+                  <a href="#">Privacy Policy</a>
+                </li>
               </ul>
             </div>
             <div>
               <div className="font-bold mb-2">FAQ</div>
               <ul className="text-gray-500 space-y-1">
-                <li><a href="#">Account</a></li>
-                <li><a href="#">Manage Deliveries</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Payments</a></li>
+                <li>
+                  <a href="#">Account</a>
+                </li>
+                <li>
+                  <a href="#">Manage Deliveries</a>
+                </li>
+                <li>
+                  <a href="#">Orders</a>
+                </li>
+                <li>
+                  <a href="#">Payments</a>
+                </li>
               </ul>
             </div>
             <div>
               <div className="font-bold mb-2">Resources</div>
               <ul className="text-gray-500 space-y-1">
-                <li><a href="#">Free eBooks</a></li>
-                <li><a href="#">Development Tutorial</a></li>
-                <li><a href="#">How to - Blog</a></li>
-                <li><a href="#">YouTube Playlist</a></li>
+                <li>
+                  <a href="#">Free eBooks</a>
+                </li>
+                <li>
+                  <a href="#">Development Tutorial</a>
+                </li>
+                <li>
+                  <a href="#">How to - Blog</a>
+                </li>
+                <li>
+                  <a href="#">YouTube Playlist</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -271,7 +319,11 @@ export default function Products() {
           </div>
           <div className="flex gap-4 mt-4 md:mt-0">
             <img src="/pictures/visa.png" alt="Visa" className="h-6" />
-            <img src="/pictures/Mastercard.png" alt="Mastercard" className="h-6" />
+            <img
+              src="/pictures/Mastercard.png"
+              alt="Mastercard"
+              className="h-6"
+            />
             <img src="/pictures/Paypal.png" alt="Paypal" className="h-6" />
             <img src="/pictures/Apple.png" alt="Apple Pay" className="h-6" />
             <img src="/pictures/Google.png" alt="Google Pay" className="h-6" />
