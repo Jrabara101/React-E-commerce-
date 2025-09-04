@@ -1,19 +1,17 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { CartProvider } from './context/CartContext';
+// ./main.tsx
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+    <AuthProvider>
     <CartProvider>
       <App />
     </CartProvider>
-  </React.StrictMode>
+    </AuthProvider>
+  </StrictMode>
 );
