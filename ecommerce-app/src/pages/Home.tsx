@@ -7,30 +7,10 @@ export default function Home() {
       {/* Top Banner */}
       <div className="bg-black text-white text-center py-2 text-sm animate-fade-in-up">
         Sign up and get 20% off your first order.{" "}
-        <a href="#" className="underline font-semibold hover:text-gray-300 transition">
+        <a href="/sale" className="underline font-semibold hover:text-gray-300 transition">
           Sign Up Now
         </a>
       </div>
-
-      {/* Navbar */}
-      <nav className="bg-white shadow animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition">
-            Shop.co
-          </Link>
-          <div className="flex space-x-6">
-            {["products", "cart", "login", "sale"].map((item) => (
-              <Link
-                key={item}
-                to={`/${item}`}
-                className="text-gray-700 hover:text-black transition duration-200"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
 
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center bg-white relative">
