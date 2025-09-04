@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useCart } from "../context/useCart"; // ✅ import useCart
 
 const COLORS = [
   "#000000", "#FF8686", "#7ED957", "#FFCD4E", "#3F9BF4", "#F6C6F6", "#F5F5F5"
@@ -10,70 +10,15 @@ const SIZES = [
 const DRESS_STYLES = ["Casual", "Formal", "Party", "Gym"];
 
 const PRODUCTS = [
-  {
-    name: "Gradient Graphic T-shirt",
-    price: 100,
-    oldPrice: 180,
-    rating: 3.5,
-    image: "/pictures/12.png"
-  },
-  {
-    name: "Polo with Tipping Details",
-    price: 130,
-    oldPrice: 150,
-    rating: 4.5,
-    image: "/pictures/4.jpeg"
-  },
-  {
-    name: "Black Striped T-shirt",
-    price: 120,
-    oldPrice: 150,
-    discount: 30,
-    rating: 5,
-    image: "/pictures/13.png"
-  },
-  {
-    name: "Skinny Fit Jeans",
-    price: 240,
-    oldPrice: 260,
-    discount: 20,
-    rating: 3.5,
-    image: "/pictures/15.png"
-  },
-  {
-    name: "Checkered Shirt",
-    price: 180,
-    rating: 4.5,
-    image: "/pictures/5.jpeg"
-  },
-  {
-    name: "Sleeve Striped T-shirt",
-    price: 130,
-    oldPrice: 160,
-    discount: 30,
-    rating: 4.5,
-    image: "/pictures/2.png"
-  },
-  {
-    name: "Vertical Striped Shirt",
-    price: 212,
-    oldPrice: 232,
-    discount: 20,
-    rating: 5,
-    image: "/pictures/7.png"
-  },
-  {
-    name: "Courage Graphic T-shirt",
-    price: 145,
-    rating: 4,
-    image: "/pictures/19.png"
-  },
-  {
-    name: "Loose Fit Bermuda Shorts",
-    price: 80,
-    rating: 3,
-    image: "/pictures/20.png"
-  }
+  { name: "Gradient Graphic T-shirt", price: 100, oldPrice: 180, rating: 3.5, image: "/pictures/12.png" },
+  { name: "Polo with Tipping Details", price: 130, oldPrice: 150, rating: 4.5, image: "/pictures/4.jpeg" },
+  { name: "Black Striped T-shirt", price: 120, oldPrice: 150, discount: 30, rating: 5, image: "/pictures/13.png" },
+  { name: "Skinny Fit Jeans", price: 240, oldPrice: 260, discount: 20, rating: 3.5, image: "/pictures/15.png" },
+  { name: "Checkered Shirt", price: 180, rating: 4.5, image: "/pictures/5.jpeg" },
+  { name: "Sleeve Striped T-shirt", price: 130, oldPrice: 160, discount: 30, rating: 4.5, image: "/pictures/2.png" },
+  { name: "Vertical Striped Shirt", price: 212, oldPrice: 232, discount: 20, rating: 5, image: "/pictures/7.png" },
+  { name: "Courage Graphic T-shirt", price: 145, rating: 4, image: "/pictures/19.png" },
+  { name: "Loose Fit Bermuda Shorts", price: 80, rating: 3, image: "/pictures/20.png" }
 ];
 
 export default function Sale() {
@@ -82,36 +27,10 @@ export default function Sale() {
   const [selectedStyle, setSelectedStyle] = useState("Casual");
   const [priceRange, setPriceRange] = useState([50, 260]);
 
+  const { addToCart } = useCart(); // ✅ gamitin yung addToCart
+
   return (
     <div className="bg-[#F5F5F5] min-h-screen flex flex-col">
-      {/* Top Banner */}
-      <div className="bg-black text-white text-center py-2 text-sm">
-        Sign up and get 20% off your first order.{" "}
-        <a href="#" className="underline font-semibold">
-          Sign Up Now
-        </a>
-      </div>
-
-      {/* Navbar */}
-      <nav className="bg-white shadow animate-fade-in-up">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-          <Link to="/" className="text-2xl font-bold text-black hover:text-gray-700 transition">
-            Shop.co
-          </Link>
-          <div className="flex space-x-6">
-            {["products", "cart", "login", "sale"].map((item) => (
-              <Link
-                key={item}
-                to={`/${item}`}
-                className="text-gray-700 hover:text-black transition duration-200"
-              >
-                {item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            ))}
-          </div>
-        </div>
-      </nav>
-
       {/* Breadcrumb */}
       <div className="text-gray-500 text-sm px-8 py-4">
         Home &gt; <span className="text-black font-semibold">Casual</span>
@@ -224,7 +143,7 @@ export default function Sale() {
                   {"☆".repeat(5 - Math.round(product.rating))}
                   <span className="ml-1 text-gray-500">{product.rating.toFixed(1)}/5</span>
                 </div>
-                <div>
+                <div className="mb-3">
                   <span className="font-bold text-lg">${product.price}</span>
                   {product.oldPrice && (
                     <>
@@ -233,9 +152,24 @@ export default function Sale() {
                     </>
                   )}
                 </div>
+                {/* ✅ Add to Cart button */}
+                <button
+                  onClick={() =>
+                    addToCart({
+                      id: product.name,
+                      name: product.name,
+                      price: product.price,
+                      image: product.image,
+                    })
+                  }
+                  className="mt-auto w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
+                >
+                  Add to Cart
+                </button>
               </div>
             ))}
           </div>
+
           {/* Pagination */}
           <div className="flex items-center justify-center gap-2 mt-10">
             <button className="px-4 py-1 border rounded-full text-sm">Previous</button>
@@ -269,7 +203,7 @@ export default function Sale() {
         </form>
       </section>
 
-{/* Footer */}
+      {/* Footer */}
       <footer className="bg-white py-12 px-8">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div>
@@ -290,8 +224,7 @@ export default function Sale() {
             </div>
           </div>
 
-          {/* Footer Links */}
-          {/* Same as your original code — you can animate or add hover scale effects similarly */}
+          {/* Footer Links (pwede dagdagan dito if needed) */}
         </div>
         <div className="flex flex-col md:flex-row justify-between items-center mt-12 border-t pt-6">
           <div className="text-gray-400 text-sm">
