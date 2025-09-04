@@ -1,13 +1,14 @@
 import React from "react";
+import { useCart } from "../context/useCart";
 
-type ProductCardProps = {
+interface ProductCardProps {
   title: string;
   price: number;
   img: string;
   rating: number;
   oldPrice?: number;
   discount?: number;
-};
+}
 
 const ProductCard: React.FC<ProductCardProps> = ({
   title,
@@ -16,27 +17,51 @@ const ProductCard: React.FC<ProductCardProps> = ({
   rating,
   oldPrice,
   discount,
-}) => (
-  <div className="bg-white rounded-xl p-4 flex flex-col items-center shadow">
-    <img src={img} alt={title} className="h-32 mb-4 object-contain" />
-    <div className="font-semibold mb-1">{title}</div>
-    <div className="flex items-center gap-1 text-yellow-500 text-sm mb-1">
-      {Array.from({ length: Math.floor(rating) }).map((_, i) => (
-        <span key={i}>★</span>
-      ))}
-      {rating % 1 !== 0 && <span>☆</span>}
-      <span className="ml-1 text-gray-500">{rating}/5</span>
-    </div>
-    <div className="flex items-center gap-2">
-      <span className="font-bold text-lg">${price}</span>
-      {oldPrice && (
-        <span className="line-through text-gray-400">${oldPrice}</span>
+}) => {
+  const { addToCart } = useCart();
+
+  return (
+    <div className="bg-white rounded-2xl p-4 shadow hover:shadow-lg transition flex flex-col">
+      {/* Image */}
+      <img
+        src={img}
+        alt={title}
+        className="w-full h-48 object-cover rounded-xl mb-4"
+      />
+
+      {/* Title + rating */}
+      <h3 className="font-bold text-lg mb-1">{title}</h3>
+      <p className="text-gray-500 mb-2">⭐ {rating}</p>
+
+      {/* Price (with optional discount) */}
+      {oldPrice ? (
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-lg font-semibold">${price}</span>
+          <span className="line-through text-gray-400">${oldPrice}</span>
+          {discount && (
+            <span className="text-red-500 font-bold">-{discount}%</span>
+          )}
+        </div>
+      ) : (
+        <span className="text-lg font-semibold mb-2">${price}</span>
       )}
-      {discount && (
-        <span className="ml-1 text-red-500 text-xs">{discount}%</span>
-      )}
+
+      {/* Add to Cart button */}
+      <button
+        onClick={() =>
+          addToCart({
+            id: title, 
+            name: title,
+            price,
+            image: img,
+          })
+        }
+        className="mt-auto w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
+      >
+        Add to Cart
+      </button>
     </div>
-  </div>
-);
+  );
+};
 
 export default ProductCard;
