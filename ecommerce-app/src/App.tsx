@@ -14,12 +14,14 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
 
         {/* Routes with shared Navbar */}
-        <Route element={
-          <>
-            <Navbar />
-            <Outlet />
-          </>
-        }>
+        <Route
+          element={
+            <>
+              <Navbar />
+              <Outlet />
+            </>
+          }
+        >
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
