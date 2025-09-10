@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useCart } from "../context/useCart"; // ✅ import useCart
 
 const COLORS = [

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       {/* Hero Section */}
       <main className="flex-1 flex flex-col items-center justify-center bg-white relative">
         <section className="w-full flex flex-col md:flex-row items-center justify-between px-8 py-16 bg-[#F6F6F6] relative animate-fade-in-up">
-          <div className="max-w-lg">
+          <div className="max-w-lg">git checkout main
             <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-fade-in-up">
               FIND CLOTHES<br />THAT MATCHES<br />YOUR STYLE
             </h1>

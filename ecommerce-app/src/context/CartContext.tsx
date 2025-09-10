@@ -67,4 +67,3 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 };
 
 
-export type { CartItem, CartContextType };
